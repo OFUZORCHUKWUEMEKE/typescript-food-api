@@ -13,6 +13,7 @@ interface VandorDoc extends Document{
     salt:string
     coverImages:[string]
     rating:number
+    foods:any
 }
 
 const VandorSchema = new Schema({
@@ -26,7 +27,11 @@ const VandorSchema = new Schema({
     salt:{type:String,required:true},
     serviceAvailable:{type:Boolean},
     coverImage:{type:[String]},
-    rating:{type:Number}
+    rating:{type:Number},
+    foods:[{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:'food'
+    }]
  
 
 },{

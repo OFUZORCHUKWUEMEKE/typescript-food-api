@@ -24,7 +24,7 @@ export const CreateVandor = async (req:Request,res:Response,next:NextFunction)=>
     const salt = await GenerateSalt()
     const userPassword = await GeneratePassword(password,salt)
     const createVandor = await Vandor.create({
-        name,pincode,address,foodType,phone,email,password:userPassword,orderName,salt:salt,serviceAvailable:false,coverImages:[],rating:0
+        name,pincode,address,foodType,phone,email,password:userPassword,orderName,salt:salt,serviceAvailable:false,coverImages:[],rating:0,foods:[]
     })
 
     return res.json(createVandor)

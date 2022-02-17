@@ -1,20 +1,19 @@
-import express from 'express'
-import mongoose, { SchemaTypeOptions } from 'mongoose'
-import { MONGO_URI } from './config';
-import { AdminRoutes,VandorRoutes } from './routes';
+import express from 'express';
+import App from './services/ExpressApp';
+import dbConnection from './services/Database';
+import { PORT } from './config';
 
-const app = express();
+const StartServer = async () => {
 
-mongoose.connect(MONGO_URI,(err)=>{
-    if(err) console.log(err)
-    else console.log("mongodb is connected")
-})
-app.use(express.json())
-app.use('/admin',AdminRoutes)
-app.use('/vandor',VandorRoutes)
+    const app = express();
 
+    await dbConnection()
 
+    await App(app);
 
-app.listen(8000,()=>{
-    console.log('App listening on port 8000')
-})
+    app.listen(PORT, () => {
+        console.log(`Listening to port 8000 ${PORT}`);
+    })
+}
+
+StartServer();

@@ -12,6 +12,6 @@ router.get('/top-restuarants/:pincode',GetTopRestuarants)
 router.get('/food-in-30-min/:pincode',GetFoodsIn30min)
 
 router.get('/search/:pincode',SearchFoods)
-router.get('/restaurant/:pincode',RestaurantById)
+router.get('/restaurant/:id',RestaurantById)
 
 export {router as ShoppingRoutes}

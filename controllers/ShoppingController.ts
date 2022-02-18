@@ -53,6 +53,8 @@ export const SearchFoods = async (req:Request,res:Response,next:NextFunction)=>{
   }
   return res.status(400).json({message:"data not found+"})
 }
+
+
 export const RestaurantById = async (req:Request,res:Response,next:NextFunction)=>{
    const id = req.params.id
 
@@ -62,5 +64,5 @@ export const RestaurantById = async (req:Request,res:Response,next:NextFunction)
      return res.status(200).json(result)
 
    }
-   return res.status(400).json({message:'na wa ooo'})
+   return res.status(400).json({message:'na wa ooo'})  
 }
